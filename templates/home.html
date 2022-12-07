@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data[1] }} page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+          <div class="imgBx">
+            <img src="{{ data[2] }}">
+          </div>
+          <div class="contentBx">
+            <h2>{{ data[1] }}</h2>
+            <div class="size">
+              <h3>links:</h3>
+              
+              <span>
+                <a href="{{ data[3] }}">
+                  <img alt="vkICO" src="{{ url_for('static', filename='icons/vk.ico')}}" height="25" width="25">
+                </a>
+              </span>
+              
+              <span>
+                <a href="{{ data[4] }}">
+                  <img alt="tgICO" src="{{ url_for('static', filename='icons/telegram.ico')}}" height="25" width="25">
+                </a>
+              </span>
+            
+              <span>
+                <a href="{{ data[5] }}">
+                  <img alt="igICO" src="{{ url_for('static', filename='icons/insta.ico')}}" height="25" width="25">
+                </a>
+              </span>
+              
+            </div>
+            <div class="color">
+              <h3>Color :</h3>
+              <span onclick=""></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#" class="like">Like!
+              <!-- пост запрос на увеличение счетчика +1 -->
+            </a>
+          </div>
+        </div>
+      </div>    
+</body>
+</html>
