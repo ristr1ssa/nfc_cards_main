@@ -12,14 +12,14 @@
         <div class="card">
           
           <div class="imgBx">
-            <img src="https://sun9-48.userapi.com/impg/7ISeKl1w8iDRtoBdS7CDk5Vv1i_n2o_jEcb1NQ/s_Au09Ydezc.jpg?size=1620x2160&quality=95&sign=89262d7ec5d523200b7e43e920abf3e3&type=album">
+            <img src="{{data[0]}}">
           </div>
           
           <div class="contentBx">
-            <h2>test name</h2>
+            <h2>{{data[1]}}</h2>
             <div class="size">
               <h3>links:</h3>
-              {{data | safe}}
+              {{data[2] | safe}}
             </div>
             <div class="color">
               <h3>Color :</h3>

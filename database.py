@@ -41,4 +41,9 @@ def configure_profile(user_hash: str):
   </a>
 </span>\n""" % (data[elem], elem, elem)
 
-    return text
+    db.execute("SELECT nickname, photo_url FROM main_data WHERE hash = '%s'" %
+               (user_hash, ))
+
+    nickname, photo_url = db.fetchone()
+    data = [photo_url, nickname, text]
+    return data
