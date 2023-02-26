@@ -3,28 +3,13 @@ import random
 try:
     connection = psycopg2.connect(
         user="postgres",
-        database="fa_nfc_cards",
         password="9009",
-        host="localhost",)
+        host="localhost",
+        database="nfc_cards_bot"
+    )
 
     connection.autocommit = True
     db = connection.cursor()
-
-    db.execute("""CREATE TABLE IF NOT EXISTS main_data(
-        hash TEXT PRIMARY KEY,
-        
-        name TEXT, 
-        
-        photo_link TEXT, 
-        
-        soc1 TEXT,
-        
-        soc2 TEXT,
-        
-        soc3 TEXT,
-        
-        soc4 TEXT)
-        """)
 
     print("Успешно подключился к БД")
 
@@ -33,26 +18,27 @@ except Exception as _ex:
     connection.close()
 
 
-def get_data(user_hash: str) -> list:
-    db.execute("SELECT * FROM main_data WHERE hash = ('%s')" % (user_hash, ))
-    data = db.fetchall()
-    return data
+def configure_profile(user_hash: str):
+    db.execute("SELECT socials FROM main_data WHERE hash = '%s'" %
+               (user_hash, ))
 
+    socials: str = db.fetchone()
+    data = {}
 
-def insert_data(link1: str = " ", link2: str = " ", link3: str = " ", link4: str = " "):
-    user_hash = gen_hash()
-    db.execute("INSERT INTO main_data VALUES ('%s', '%s', '%s', '%s', '%s')" %
-               (link1, link2, link3, link4, user_hash))
-    return True
+    for _ in socials[0].split(", "):
+        db.execute("SELECT link FROM %s " % (_, ))
+        link = db.fetchone()
+        link = link[0]
 
+        data[_] = link
 
-def gen_hash():
-    user_hash = random.getrandbits(128)
-    user_hash = "%032x" % user_hash
-    db.execute("SELECT * FROM main_data WHERE hash = ('%s')" % (user_hash, ))
-    data = db.fetchone()
+    text = ""
 
-    if len(data) == 0:
-        return user_hash
+    for elem in data:
+        text += """<span>
+  <a href="%s">
+    <img alt="%sICO" src="/static/icons/%s.ico" height="25" width="25">
+  </a>
+</span>\n""" % (data[elem], elem, elem)
 
-    return gen_hash()
+    return text

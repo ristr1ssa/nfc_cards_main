@@ -35,7 +35,7 @@ body{
   height: 100%;
   background: #9bdc28;
   clip-path: circle(150px at 80% 20%);
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .container .card:hover:before{
@@ -56,24 +56,24 @@ body{
 .container .card .imgBx{
   position: absolute;
   top: 30%;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   z-index: 10000;
   width: 100%;
   height: 220px;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .container .card:hover .imgBx{
   top: 0%;
-  transform: translateY(0%);
+  transform: translateY(-10%);
     
 }
 
 .container .card .imgBx img{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
+  top: 25%;
+  left: 45%;
+  width: 150px;
 }
 
 .container .card .contentBx{

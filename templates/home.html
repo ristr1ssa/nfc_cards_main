@@ -5,37 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ data[1] }} page</title>
+    <title>NKR | CARDS</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
+          
           <div class="imgBx">
-            <img src="{{ data[2] }}">
+            <img src="https://sun9-48.userapi.com/impg/7ISeKl1w8iDRtoBdS7CDk5Vv1i_n2o_jEcb1NQ/s_Au09Ydezc.jpg?size=1620x2160&quality=95&sign=89262d7ec5d523200b7e43e920abf3e3&type=album">
           </div>
+          
           <div class="contentBx">
-            <h2>{{ data[1] }}</h2>
+            <h2>test name</h2>
             <div class="size">
               <h3>links:</h3>
-              
-              <span>
-                <a href="{{ data[3] }}">
-                  <img alt="vkICO" src="{{ url_for('static', filename='icons/vk.ico')}}" height="25" width="25">
-                </a>
-              </span>
-              
-              <span>
-                <a href="{{ data[4] }}">
-                  <img alt="tgICO" src="{{ url_for('static', filename='icons/telegram.ico')}}" height="25" width="25">
-                </a>
-              </span>
-            
-              <span>
-                <a href="{{ data[5] }}">
-                  <img alt="igICO" src="{{ url_for('static', filename='icons/insta.ico')}}" height="25" width="25">
-                </a>
-              </span>
-              
+              {{data | safe}}
             </div>
             <div class="color">
               <h3>Color :</h3>

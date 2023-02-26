@@ -1,7 +1,7 @@
 from flask import Flask, render_template
-from database import get_data
+from database import (configure_profile)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 
 @app.route('/pages/None')
@@ -11,8 +11,8 @@ def NoneErrorHandler():
 
 @app.route('/pages/<user_hash>')
 def home(user_hash: str):
-    data = get_data(user_hash=user_hash)[0]
-    return render_template('home.html', data=data)
+    profile = configure_profile(user_hash)
+    return render_template('home.html', data=profile)
 
 
 if __name__ == '__main__':
