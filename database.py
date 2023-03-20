@@ -50,14 +50,14 @@ except Exception as _ex:
 
 
 def configure_profile(user_hash: str):
-    db.execute("SELECT socials FROM main_data WHERE hash = '%s'" %
+    db.execute("SELECT socials, email FROM main_data WHERE hash = '%s'" %
                (user_hash, ))
 
-    socials: str = db.fetchone()
+    socials, email = db.fetchone()
     data = {}
 
-    for _ in socials[0].split(", "):
-        db.execute("SELECT link FROM %s " % (_, ))
+    for _ in socials.split(", "):
+        db.execute("SELECT link FROM %s WHERE email = '%s'" % (_, email))
         link = db.fetchone()
         link = link[0]
 
