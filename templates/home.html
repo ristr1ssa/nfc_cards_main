@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css')}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NKR | CARDS</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css')}}">
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/app.js')}}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>400 | CARDS</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="card">
-          
-          <div class="imgBx">
-            <img src="{{data[0]}}">
-          </div>
-          
-          <div class="contentBx">
-            <h2>{{data[1]}}</h2>
-            <div class="size">
-              <h3>links:</h3>
-              {{data[2] | safe}}
-            </div>
-            <div class="color">
-              <h3>Color :</h3>
-              <span onclick=""></span>
-              <span></span>
-              <span></span>
-            </div>
-            <a href="#" class="like">Like!
-              <!-- пост запрос на увеличение счетчика +1 -->
-            </a>
-          </div>
+  <div class="container">
+    <div class="card">
+
+      <div class="imgBx">
+        <img src="{{data[0]}}">
+      </div>
+
+      <div class="contentBx">
+        <h2>{{data[1]}}</h2>
+        <div class="size">
+          <h3>links:</h3>
+          {{data[2] | safe}}
         </div>
-      </div>    
+      </div>
+    </div>
+
+    <div class="support">
+      <span class="link" onclick="get_hash()">Поддержка</span>
+    </div>
+
+  </div>
 </body>
+
 </html>
