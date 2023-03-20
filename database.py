@@ -11,10 +11,41 @@ try:
     connection.autocommit = True
     db = connection.cursor()
 
-    print("Успешно подключился к БД")
+    db.execute("""CREATE TABLE IF NOT EXISTS main_data(
+        email TEXT PRIMARY KEY,
+        socials TEXT,
+        nickname TEXT,
+        photo_url TEXT,
+        hash TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS vk(
+        email TEXT,
+        link TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS instagram(
+        email TEXT,
+        link TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS telegram(
+        email TEXT,
+        link TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS youtube(
+        email TEXT,
+        link TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS ozon(
+        email TEXT,
+        link TEXT);""")
+
+    db.execute("""CREATE TABLE IF NOT EXISTS wildberries(
+        email TEXT,
+        link TEXT);""")
+
+    print("DB: OK")
 
 except Exception as _ex:
-    print("Возникла ошибка во время подключения к БД\n", _ex)
+    print("DB: Error", _ex)
     connection.close()
 
 
