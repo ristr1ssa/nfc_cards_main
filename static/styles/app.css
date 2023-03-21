@@ -176,6 +176,11 @@ body {
 }
 
 
+.container .d4{
+  width: 80vw;
+  height: 50%;
+}
+
 .d4 {
   background: #F15B42;
   border-radius: 5px;
@@ -197,21 +202,34 @@ body {
 
 .d4 input {
   height: 42px;
-  width: 350px;
-  padding-left: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .d4 button {
-  height: 42px;
-  width: 42px;
+  height: 100px;
+  width: 100%;
   position: absolute;
-  top: 0;
-  right: 0;
   cursor: pointer;
 }
 
 .d4 button:before {
-  content: "➡️";
+  content: "Search";
+  background: grey;
+  border-radius: 10px;
+  padding: 10px 30px;
+  letter-spacing: 2px;
   font-size: 20px;
-  color: #be290e;
+  color: wheat;
+}
+
+.container .logo{
+  position: absolute;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: -20vh;
+  width: 100%;
 }
