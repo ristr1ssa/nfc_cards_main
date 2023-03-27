@@ -7,6 +7,9 @@ function get_hash() {
 
 function open_hash() {
     const hash = document.getElementById('input_hash').value;
-    let link = `http://400-cards.ru/p/${hash}`;
-    return window.open(link);
+
+    if (hash == ""){
+        return NaN
+    }
+    return window.location.href = `/p/${hash}`;
 };
